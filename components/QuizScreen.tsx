@@ -29,7 +29,6 @@ export function QuizScreen({ level }: QuizScreenProps) {
     startQuiz,
     submitAnswer,
     nextQuestion,
-    resetQuiz,
   } = useQuiz()
 
   useEffect(() => {
