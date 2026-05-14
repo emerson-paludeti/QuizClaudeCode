@@ -8,7 +8,6 @@ export async function getQuestions(level: QuizLevel): Promise<QuestionPublic[]> 
   let query = supabaseClient
     .from('questions')
     .select('id, level, question_text')
-    .eq('active', true)
 
   if (level !== 'aleatorio') {
     query = query.eq('level', level)

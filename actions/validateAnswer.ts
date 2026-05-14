@@ -40,7 +40,7 @@ export async function validateAnswer(payload: AnswerPayload): Promise<AnswerResu
     session_id: sessionId,
     question_id: questionId,
     user_answer: userAnswer,
-    is_correct: isCorrect,
+    correct: isCorrect,
   })
 
   // Count answers so far to determine if this is the last one
@@ -62,7 +62,7 @@ export async function validateAnswer(payload: AnswerPayload): Promise<AnswerResu
   if (answeredCount >= (session.total as number)) {
     await supabaseServer
       .from('quiz_sessions')
-      .update({ completed: true, completed_at: new Date().toISOString(), score: newScore })
+      .update({ completed: true, score: newScore })
       .eq('id', sessionId)
   }
 
